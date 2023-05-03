@@ -3,14 +3,14 @@
 
 #“#SBATCH” directives that convey submission options:
 
-#SBATCH --job-name=220908
-#SBATCH --mail-user=xhq@stanford.edu
+#SBATCH --job-name=XXX
+#SBATCH --mail-user=XXX
 #SBATCH --cpus-per-task=1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem-per-cpu=30g 
 #SBATCH --time=24:00:00
-#SBATCH --account=mwinslow
+#SBATCH --account=XXX
 #SBATCH --partition=batch
 
 # The parameters that I need to change
@@ -32,30 +32,24 @@ mkdir -p $Project_directory
 mkdir -p "$Project_directory/Raw_reads"
 
 # --a1 read a csv file, first column is the input file address, the second file is the sample address
+# check UltraSeq_Step_0.py and change R1 and R2 pattren according to the data
 python3 $Python_script_address/UltraSeq_Step_0.py --a1 $Sample_info_dir \
---o "$Project_directory/Raw_reads"
-
-
+--a2 "_1.fq" --a3 "_2.fq" --o "$Project_directory/Raw_reads"
 
 # Step 1.1 QC
 # I use fastqc to generate qc file
 # load module
 module load fastqc/0.11.9
 
-
 # input and output address
 # Two address for paired end 
 input_step_1_1_1="$Project_directory/Raw_reads/Combined_R1.fastq"
 input_step_1_1_2="$Project_directory/Raw_reads/Combined_R2.fastq"
 
-
-
-
 #commands
 mkdir -p "${Project_directory}/QC"
 
 fastqc -o "${Project_directory}/QC" ${input_step_1_1_1} ${input_step_1_1_2}
-
 
 # Step 1.2 Merge pairend reads using adapterremoval
 # load module
@@ -81,6 +75,8 @@ step_2_1_address="$Project_directory/Bartender"
 
 # command
 mkdir -p $step_2_1_address
+
+# check UltraSeq_Step_2_1.py and change the barcode extraction pattern accordingly
 python3 $Python_script_address/UltraSeq_Step_2_1.py --a "$input_step_2_1" \
 --o "$step_2_1_address"
 
@@ -99,6 +95,8 @@ module load python/3.8.2
 
 # input and output address
 step_3_1_address="$Project_directory/Processed_data"
+
+
 # command
 mkdir -p $step_3_1_address
 python3 $Python_script_address/UltraSeq_Step_3_1.py \
@@ -107,6 +105,3 @@ python3 $Python_script_address/UltraSeq_Step_3_1.py \
 --b1 "$Project_directory/Bartender/clonalbarcode_barcode.csv" --b2 "$Project_directory/Bartender/clonalbarcode_cluster.csv" \
 --b3 "$Project_directory/Bartender/clonalbarcode.bartender" --b4 clonal_barcode \
 --o "$step_3_1_address/gRNA_clonalbarcode_combined.csv"
-
-# Step 3.2 Simple anlaysis
-
