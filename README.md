@@ -4,7 +4,7 @@ Scrips for analyzing the Ultra-Seq data
 ## 1. Barcode extraction
 * Refer to the folder Extracting_barcodes
 * The pipe line is in Ultra_seq_pipeline.sh
-* Here the barcode refer to both sgRNA sequence and clonal barcode
+* Barcodes refer to both sgRNA sequence and clonal barcode
 
 ## 2. Data preprocessing 
 * Refer to the folder Data_preprocessing
