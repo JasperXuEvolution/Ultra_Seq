@@ -5,6 +5,8 @@ Scrips for analyzing the Ultra-Seq data
 * Refer to the folder Extracting_barcodes
 * The pipe line is in Ultra_seq_pipeline.sh
 * Barcodes refer to both sgRNA sequence and clonal barcode
+* Ultra_seq_pipeline.sh contains the necessary steps for barcode extraction
+* The output of this steps is a master table contains the sgRNA, colonal barcode, sample ID and reads count information.
 
 ## 2. Data preprocessing 
 * Refer to the folder Data_preprocessing
