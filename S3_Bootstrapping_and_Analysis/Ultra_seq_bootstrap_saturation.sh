@@ -1,22 +1,20 @@
 #!/bin/bash
 # The interpreter used to execute the script
 
-#“#SBATCH” directives that convey submission options:
-
-#SBATCH --job-name=220908
-#SBATCH --mail-user=xhq@stanford.edu
+#SBATCH --job-name=XXX
+#SBATCH --mail-user=XXX
 #SBATCH --cpus-per-task=1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem-per-cpu=200g 
+#SBATCH --mem-per-cpu=50g 
 #SBATCH --time=10-24:00:00
-#SBATCH --account=mwinslow
+#SBATCH --account=XXX
 #SBATCH --partition=batch
 
 # general input and output address
 LP="/labs/mwinslow/Haiqing/Ultra_seq/Summarize_Chromatin_study"
 source ~/miniconda3/etc/profile.d/conda.sh 
-conda activate spipe
+conda activate UltraSeq # conda environment with required python package
 
 
 # command
