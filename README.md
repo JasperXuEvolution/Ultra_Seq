@@ -20,6 +20,4 @@ Scrips for analyzing the Ultra-Seq data
 * Refer to the folder S3_Bootstrapping_and_Analysis
 * We used a two-step boostrapping process to estimate tumor metrics.
 * Example output is in folder Data/Chromatin_58Q
-* 
-* 
 
