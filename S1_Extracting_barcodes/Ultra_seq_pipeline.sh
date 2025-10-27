@@ -60,14 +60,11 @@ step_1_2_address="${Project_directory}/Merging"
 
 # comand
 mkdir -p $step_1_2_address
-
 AdapterRemoval --file1 $input_step_1_1_1  --file2 $input_step_1_1_2 \
 --basename "$step_1_2_address/Merged"  --collapse --gzip
 
 
 # Step 2.1 Extract barcode and gRNA information from fastq to generate input for bartender
-# load module
-module load python/3.8.2
 
 # input and output address
 input_step_2_1="$Project_directory/Merging/Merged.collapsed.gz"
@@ -90,8 +87,6 @@ bartender_single_com -z -1 -d 2 -l 5 -f "$Project_directory/Bartender/gRNA.barte
 
 
 # Step 3.1 Combine gRNA and barcode information
-# load module
-module load python/3.8.2
 
 # input and output address
 step_3_1_address="$Project_directory/Processed_data"
