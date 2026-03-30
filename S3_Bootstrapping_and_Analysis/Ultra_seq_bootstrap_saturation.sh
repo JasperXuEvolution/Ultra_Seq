@@ -12,7 +12,7 @@
 #SBATCH --partition=batch
 
 # general input and output address
-LP="/labs/mwinslow/Haiqing/Ultra_seq/Summarize_Chromatin_study"
+LP="XXX"
 source ~/miniconda3/etc/profile.d/conda.sh 
 conda activate UltraSeq # conda environment with required python package
 
