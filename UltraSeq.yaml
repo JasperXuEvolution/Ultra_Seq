@@ -1,0 +1,25 @@
+# UltraSeq — conda environment for Python scripts and Jupyter notebooks in this repo.
+#
+# Usage:
+#   conda env create -f UltraSeq.yaml
+#   conda activate UltraSeq
+#
+# Covers:
+#   S1_Extracting_barcodes/UltraSeq_Step_*.py  (pandas, regex)
+#   S3_Bootstrapping_and_Analysis/Ultra_Seq_Boostrapping*.py (pandas, numpy, scipy, matplotlib)
+#   S2_QC_and_Preprocessing/*.ipynb (pandas, numpy, matplotlib, seaborn, regex)
+#   S3_Bootstrapping_and_Analysis/Post_Bootstrap*.ipynb (pandas, numpy, scipy)
+
+name: UltraSeq
+channels:
+  - conda-forge
+dependencies:
+  - python >=3.10,<3.13
+  - pandas
+  - numpy
+  - scipy
+  - matplotlib
+  - seaborn
+  - regex
+  - jupyter
+  - ipykernel
